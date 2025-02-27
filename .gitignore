@@ -1,0 +1,12 @@
+bin/
+lib/
+*.o
+*.os
+*.a
+*.dylib
+*.so
+.godot/
+.import/
+*.godotignore
+*.import
+godot-cpp/gen/

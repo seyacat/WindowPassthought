@@ -29,7 +29,7 @@ public:
         if (window != nullptr) {
             // Successfully retrieved the native window handle, you can proceed with further logic
         } else {
-            Godot::print("Failed to get native window handle!");  // Corrected to 'Godot::print()'
+            UtilityFunctions::print("Failed to get native window handle!");  // Corrected to 'Godot::print()'
         }
     }
 };
