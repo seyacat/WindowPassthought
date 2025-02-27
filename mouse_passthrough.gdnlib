@@ -1,0 +1,5 @@
+[entry]
+macos.64="res://bin/mouse_passthrough.dylib"
+
+[dependencies]
+macos.64=[]
