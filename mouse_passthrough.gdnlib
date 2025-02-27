@@ -1,5 +1,0 @@
-[entry]
-macos.64="res://bin/libmouse_passthrough.a"
-
-[dependencies]
-macos.64=[]

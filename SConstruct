@@ -1,7 +1,7 @@
 import os
 import sys
 
-env = Environment()
+env = Environment(SHFLAGS=['-fPIC'], CCFLAGS=['-fPIC'], SHLIBSUFFIX='.dylib', SHLIBPREFIX='lib')
 
 # Make sure these paths are included
 env.Append(CPPPATH=[
@@ -11,9 +11,10 @@ env.Append(CPPPATH=[
 ])
 
 env.Append(LIBPATH=["godot-cpp/bin/"])
+env.Append(LIBS=['libgodot-cpp.macos.template_release.universal'])
 env.Append(CPPFLAGS=["-std=c++17"])
 
-env.Append(CPPPATH=["godot-cpp/include/", 
+env.Append(CPPPATH=["godot-cpp/include/",
                     "godot-cpp/gen/include/",
                     "../godot/core/extension"])
 
@@ -22,8 +23,8 @@ if sys.platform == "darwin":
     env.Append(LINKFLAGS=["-framework", "AppKit"])  # Link AppKit for macOS
 
 sources = [
-    env.Object("src/mouse_passthrough.mm", CPPPATH=["godot-cpp/include/", "godot-cpp/gen/include/", "godot-cpp/gdextension/"], SHARED=True),
-    env.Object("src/register_types.cpp", CPPPATH=["godot-cpp/include/", "godot-cpp/gen/include/", "godot-cpp/gdextension/"], SHARED=True)
+    env.SharedObject("src/mouse_passthrough.mm", CPPPATH=["godot-cpp/include/", "godot-cpp/gen/include/", "godot-cpp/gdextension/"]),
+    env.SharedObject("src/register_types.cpp", CPPPATH=["godot-cpp/include/", "godot-cpp/gen/include/", "godot-cpp/gdextension/"])
 ]
 
-env.StaticLibrary("bin/mouse_passthrough", sources)
+env.SharedLibrary("bin/mouse_passthrough", sources)

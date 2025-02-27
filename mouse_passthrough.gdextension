@@ -1,7 +1,0 @@
-[configuration]
-entry_symbol = "initialize_mouse_passthrough_module"
-unregister_symbol = "uninitialize_mouse_passthrough_module"
-compatibility_minimum = "4.0"
-
-[libraries]
-macos.64 = "res://bin/mouse_passthrough.dylib"

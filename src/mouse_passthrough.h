@@ -14,6 +14,7 @@ public:
 
     void enable_passthrough();
     void disable_passthrough();
+    void _ready();
 
     static void _bind_methods();
 };
